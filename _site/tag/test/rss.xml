@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>nmmarquez.github.io/</title>
+   
+   <link>http://nmmarquez.github.io/</link>
+   <description>Demography, Data Science, and other Deliberations</description>
+   <language>en-uk</language>
+   <managingEditor> Neal Marquez</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Hello Worlds</title>
+	  <link>//hello-worlds</link>
+	  <author>Neal Marquez</author>
+	  <pubDate>2016-03-18T03:18:00-07:00</pubDate>
+	  <guid>//hello-worlds</guid>
+	  <description><![CDATA[
+	     <p>Setting up a blog so I have a place to post my ideas and work that I manage to do outside of work and school (ha!). <br />
+Hoping this is the beginning of something long and beautiful so here goes nothing.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
