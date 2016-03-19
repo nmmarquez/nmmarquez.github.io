@@ -12,13 +12,29 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Latex with Jekyll</title>
+	  <link>//latex-with-jekyll</link>
+	  <author>Neal Marquez</author>
+	  <pubDate>2016-03-18T03:18:00-07:00</pubDate>
+	  <guid>//latex-with-jekyll</guid>
+	  <description><![CDATA[
+	     <p>I am trying out a new layout that will hopefully let me do inline latex like so <script type="math/tex">\beta</script> as well as its own thing like  </p>
+
+<script type="math/tex; mode=display">
+Y = \beta_0 + x * \beta_1 
+</script>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Hello Worlds</title>
 	  <link>//hello-worlds</link>
 	  <author>Neal Marquez</author>
 	  <pubDate>2016-03-18T03:18:00-07:00</pubDate>
 	  <guid>//hello-worlds</guid>
 	  <description><![CDATA[
-	     <p>Setting up a blog so I have a place to post my ideas and work that I manage to do outside of work and school (ha!). <br />
+	     <p>Setting up a blog so I have a place to post my ideas and work that I manage to do outside of work and school (ha!).
 Hoping this is the beginning of something long and beautiful so here goes nothing.</p>
 
 	  ]]></description>
