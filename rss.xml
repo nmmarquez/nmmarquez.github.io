@@ -8,7 +8,20 @@
     <title>Random Ramble with Drift</title>
     <link>http://nmmarquez.github.io/</link>
     <description>Demography, Data Science, and other Deliberations</description>
-    <pubDate>Fri, 18 Mar 2016 03:18:00 -0700</pubDate>
+    <pubDate>Sat, 19 Mar 2016 14:47:00 -0700</pubDate>
+    <item>
+      <title>Simulating Spatially Correlated Data</title>
+      <link>http://nmmarquez.github.io//simulating-spatial-data</link>
+      <description>A couple of weeks ago I ran into a problem where I needed to create some spatially correlated data for a project and I 
+realized that I didn't know the first thing about how to go about doing it. I was lucky to find that the 
+[paper](http://arxiv.org/abs/1601.01180) that I was trying to replicate did a great job of detailing their methods in 
+such a way that I was able to create some spatial data of my own. The idea is that you need to create a covariance 
+matrix of the relationships of your data to pull form a multivariate random normal distribution.
+
+</description>
+      <pubDate>Sat, 19 Mar 2016 14:47:00 -0700</pubDate>
+      <dc:date>2016-03-19T14:47:00-07:00</dc:date>
+    </item>
     <item>
       <title>Latex with Jekyll</title>
       <link>http://nmmarquez.github.io//latex-with-jekyll</link>
@@ -28,6 +41,6 @@ Hoping this is the beginning of something long and beautiful so here goes nothin
       <pubDate>Fri, 18 Mar 2016 03:18:00 -0700</pubDate>
       <dc:date>2016-03-18T03:18:00-07:00</dc:date>
     </item>
-    <dc:date>2016-03-18T03:18:00-07:00</dc:date>
+    <dc:date>2016-03-19T14:47:00-07:00</dc:date>
   </channel>
 </rss>

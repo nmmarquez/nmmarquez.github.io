@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [[! Page Meta ]] -->
-    <title>Latex with Jekyll</title>
+    <title>Simulating Spatially Correlated Data</title>
     <meta name="description" content="Random Ramble with Drift - Demography, Data Science, and other Deliberations" />
 
     <meta name="HandheldFriendly" content="True" />
@@ -83,7 +83,7 @@
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head " style="background-image: url(/assets/images/latex.jpg) ">
+<header class="main-header post-head " style="background-image: url(/assets/images/spatial_autocorrelation.jpg) ">
     <nav class="main-nav  overlay  clearfix">
         <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
         
@@ -97,20 +97,20 @@
     <article class="post tag-fiction">
 
         <header class="post-header">
-            <h1 class="post-title">Latex with Jekyll</h1>
+            <h1 class="post-title">Simulating Spatially Correlated Data</h1>
             <section class="post-meta">
             <!-- <a href='/'>Neal Marquez</a> -->
-            <time class="post-date" datetime="2016-03-18">18 Mar 2016</time>
+            <time class="post-date" datetime="2016-03-19">19 Mar 2016</time>
                 <!-- [[tags prefix=" on "]] -->
                  
                 on 
                 
                     
-                       <a href='/tag/test'>Test</a>,
+                       <a href='/tag/spatial'>Spatial</a>,
                        
                 
                     
-                       <a href='/tag/content'>Content</a>
+                       <a href='/tag/R'>R</a>
                        
                 
                 
@@ -119,11 +119,62 @@
 
         <section class="post-content">
             
-            <p>I am trying out a new layout that will hopefully let me do inline latex like so <script type="math/tex">\beta</script> as well as its own thing like  </p>
+            <p>A couple of weeks ago I ran into a problem where I needed to create some spatially correlated data for a project and I 
+realized that I didn’t know the first thing about how to go about doing it. I was lucky to find that the 
+<a href="http://arxiv.org/abs/1601.01180">paper</a> that I was trying to replicate did a great job of detailing their methods in 
+such a way that I was able to create some spatial data of my own. The idea is that you need to create a covariance 
+matrix of the relationships of your data to pull form a multivariate random normal distribution.</p>
 
 <script type="math/tex; mode=display">
-Y = \beta_0 + x * \beta_1 
+\mathcal{N}(\mu, \Sigma)
 </script>
+
+<p><script type="math/tex">\mu</script> is just the scalar mean and can be set to any real number but defining a sensible covariance matrix was 
+originally difficult. The way that Riebler et al. did it was by using a matrix Q </p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+
+Q_{i,j}= 
+\begin{cases}
+    n_{\delta_{i}},& \text{if  } i = j \\
+    -1,              & \text{if  } i \sim j \\
+    0, & \text{otherwise}
+    
+\end{cases}
+ %]]></script>
+
+<p>where <script type="math/tex">\delta_{i}</script> is the number of neighbors a location has and <script type="math/tex">i \sim j</script> means that the two locations are 
+adjacent. Im used to working with spatial polygons data frames in R and found that its pretty easy to create this 
+matrix with the right packages. Here’s an example with US state shape file.</p>
+
+<pre><code>library(sp)
+library(surveillance)
+library(spdep)
+library(MASS)
+
+# load in some USA data to work with
+load(url("http://biogeo.ucdavis.edu/data/gadm2/R/USA_adm2.RData"))
+cont_usa_locs &lt;- c("Texas", "Louisiana")
+
+# spatial polygons data frame to simulate from
+cont_usa &lt;- gadm[(gadm@data$NAME_1 %in% cont_usa_locs),]
+cont_usa$ID &lt;- 1:length(cont_usa)
+
+# adjacency matrix for spatial data 1's if adjacent 0 otherwise
+adjmat &lt;- poly2adjmat(cont_usa)
+
+# Create Q from an adjacency matrix
+n_delta_i &lt;- rowSums(adjmat)
+Q &lt;- adjmat * -1
+diag(Q) &lt;- n_delta_i
+</code></pre>
+
+<p>Using the inverse of Q as the covariance matrix creates a smooth spatial dispersion, that you can see below, when 
+compared to just simple dispersion at random. A more complete example can be found 
+<a href="https://github.com/nmmarquez/spatial_epi/blob/master/project/project_outlay.r">here</a>.</p>
+
+<p><img src="/assets/images/spatial_sim_plot.png" alt="Alt text" title="If it fits I sits." /></p>
+
 
 
         </section>
@@ -155,15 +206,15 @@ Y = \beta_0 + x * \beta_1
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=Latex with Jekyll&amp;url=http://nmmarquez.github.io/latex-with-jekyll"
+                <a class="icon-twitter" href="http://twitter.com/share?text=Simulating Spatially Correlated Data&amp;url=http://nmmarquez.github.io/simulating-spatial-data"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://nmmarquez.github.io/latex-with-jekyll"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://nmmarquez.github.io/simulating-spatial-data"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://nmmarquez.github.io/latex-with-jekyll"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://nmmarquez.github.io/simulating-spatial-data"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>
@@ -182,20 +233,13 @@ Y = \beta_0 + x * \beta_1
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/spatial_autocorrelation.jpg)" href="/simulating-spatial-data">
-            <section class="post">
-                <h2>Simulating Spatially Correlated Data</h2>
-                <p>A couple of weeks ago I ran into a problem where I needed to create...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover1.jpg)" href="/hello-worlds">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/latex.jpg)" href="/latex-with-jekyll">
             <section class="post">
-                <h2>Hello Worlds</h2>
-                <p>Setting up a blog so I have a place to post my ideas and work...</p>
+                <h2>Latex with Jekyll</h2>
+                <p>I am trying out a new layout that will hopefully let me do inline latex...</p>
             </section>
         </a>
     
