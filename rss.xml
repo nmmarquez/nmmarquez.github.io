@@ -8,7 +8,20 @@
     <title>Random Ramble with Drift</title>
     <link>http://nmmarquez.github.io/</link>
     <description>Demography, Data Science, and other Deliberations</description>
-    <pubDate>Sat, 19 Mar 2016 14:47:00 -0700</pubDate>
+    <pubDate>Sat, 03 Dec 2016 02:50:00 -0800</pubDate>
+    <item>
+      <title>NB1 and NB2 Dispersion</title>
+      <link>http://nmmarquez.github.io//nb1-nb2-uncertainty</link>
+      <description>The other day I started working with a colleague on propagating uncertainty for
+a negative binomial generalized linear model. To my surprise I found that there
+was a couple of different ways to define the probability distribution that led
+to more than a bit of confusion on my end.  
+
+
+</description>
+      <pubDate>Sat, 03 Dec 2016 02:50:00 -0800</pubDate>
+      <dc:date>2016-12-03T02:50:00-08:00</dc:date>
+    </item>
     <item>
       <title>Simulating Spatially Correlated Data</title>
       <link>http://nmmarquez.github.io//simulating-spatial-data</link>
@@ -41,6 +54,6 @@ Hoping this is the beginning of something long and beautiful so here goes nothin
       <pubDate>Fri, 18 Mar 2016 03:18:00 -0700</pubDate>
       <dc:date>2016-03-18T03:18:00-07:00</dc:date>
     </item>
-    <dc:date>2016-03-19T14:47:00-07:00</dc:date>
+    <dc:date>2016-12-03T02:50:00-08:00</dc:date>
   </channel>
 </rss>

@@ -12,6 +12,21 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>NB1 and NB2 Dispersion</title>
+	  <link>//nb1-nb2-uncertainty</link>
+	  <author>Neal Marquez</author>
+	  <pubDate>2016-12-03T02:50:00-08:00</pubDate>
+	  <guid>//nb1-nb2-uncertainty</guid>
+	  <description><![CDATA[
+	     <p>The other day I started working with a colleague on propagating uncertainty for
+a negative binomial generalized linear model. To my surprise I found that there
+was a couple of different ways to define the probability distribution that led
+to more than a bit of confusion on my end.  </p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Latex with Jekyll</title>
 	  <link>//latex-with-jekyll</link>
 	  <author>Neal Marquez</author>
