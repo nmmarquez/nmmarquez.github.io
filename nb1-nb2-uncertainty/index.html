@@ -106,11 +106,11 @@
                 on 
                 
                     
-                       <a href='/tag/test'>Test</a>,
+                       <a href='/tag/R'>R</a>,
                        
                 
                     
-                       <a href='/tag/content'>Content</a>
+                       <a href='/tag/simulation'>Simulation</a>
                        
                 
                 
@@ -122,7 +122,74 @@
             <p>The other day I started working with a colleague on propagating uncertainty for
 a negative binomial generalized linear model. To my surprise I found that there
 was a couple of different ways to define the probability distribution that led
-to more than a bit of confusion on my end.  </p>
+to more than a bit of confusion on my end, but got me messing around with how
+you could simulate over-dispersed count data in a couple of ways. It also got me
+working with TMB again and the woes of dealing with nonlinear optimization.</p>
+
+<p>The first model is a mixture distribution model which incorporates a poisson
+distribution but also a gamma distribution to account for the extra variance.
+from what I have seen this is referred to as an NB1 model and looks like this.</p>
+
+<script type="math/tex; mode=display">
+y \sim Poisson(Gamma(\mu / \alpha, \alpha))
+</script>
+
+<p>Our distribution has a mean of <script type="math/tex">\mu</script> but that persists through both
+distributions but the variance is greater than just a regular poisson
+distribution because of the randomness introduced by the Gamma distribution
+which itself has a variance of <script type="math/tex">\mu * \alpha</script>. Getting this to work for a
+linear model with a log link required me to introduce a new random
+variable <script type="math/tex">\nu</script> which would account for the over-dispersion and a full log link
+model follows the form</p>
+
+<script type="math/tex; mode=display">
+\nu \sim gamma(1/\alpha, \alpha)
+</script>
+
+<script type="math/tex; mode=display">
+\mu = exp(X \dot \beta + \nu)
+</script>
+
+<script type="math/tex; mode=display">
+y \sim Poisson(\mu)
+</script>
+
+<p>where <script type="math/tex">X</script> is my matrix of covariate data and <script type="math/tex">\beta</script> are their coefficients
+for the linear model.</p>
+
+<p>Simulating this data was cake but when I used TMB to fit the model I found
+that my model often failed to converge depending on what the start values of my
+parameters were. I could get around it by fitting the model with out <script type="math/tex">\nu</script>
+first to get good start values for <script type="math/tex">\beta</script> but even so the model was slow to
+fit.</p>
+
+<p>Alternatively we could model the extra variance directly without any extra term
+$$\nu$ by using a negative binomial function that comes built in with both R and
+TMB. This way saves us the hassle of having to simulate from two different
+distributions and the two parameter model can easily be set up so that it has
+a mean setting parameter and a variance parameter. The NB2 as well call it looks
+like this.</p>
+
+<script type="math/tex; mode=display">
+y \sim NB2(\mu, \theta)
+</script>
+
+<script type="math/tex; mode=display">
+E(y) = \mu
+</script>
+
+<script type="math/tex; mode=display">
+Var(y) = \mu + (\theta / \mu^{2})
+</script>
+
+<p>Fitting a log linear model into here just means estimating <script type="math/tex">log(\mu)</script> with
+the same <script type="math/tex">X \dot \beta</script> without the <script type="math/tex">\nu</script> parameter. The nice thing is we
+still get the same distribution as the first model where <script type="math/tex">\alpha</script> corresponds
+to <script type="math/tex">1/\theta</script>. The even nicer thing is that I didn’t have any problems fitting
+this model and it was way faster for TMB due to not having a whole other set of
+parameters to estimate.</p>
+
+<p>A working version of the code exists <a href="https://github.com/nmmarquez/re_simulations/blob/master/nb_compare/nb_tmb.R">here</a> </p>
 
 
         </section>

@@ -15,8 +15,9 @@
       <description>The other day I started working with a colleague on propagating uncertainty for
 a negative binomial generalized linear model. To my surprise I found that there
 was a couple of different ways to define the probability distribution that led
-to more than a bit of confusion on my end.  
-
+to more than a bit of confusion on my end, but got me messing around with how
+you could simulate over-dispersed count data in a couple of ways. It also got me
+working with TMB again and the woes of dealing with nonlinear optimization.
 
 </description>
       <pubDate>Sat, 03 Dec 2016 02:50:00 -0800</pubDate>
@@ -25,10 +26,10 @@ to more than a bit of confusion on my end.
     <item>
       <title>Simulating Spatially Correlated Data</title>
       <link>http://nmmarquez.github.io//simulating-spatial-data</link>
-      <description>A couple of weeks ago I ran into a problem where I needed to create some spatially correlated data for a project and I 
-realized that I didn't know the first thing about how to go about doing it. I was lucky to find that the 
-[paper](http://arxiv.org/abs/1601.01180) that I was trying to replicate did a great job of detailing their methods in 
-such a way that I was able to create some spatial data of my own. The idea is that you need to create a covariance 
+      <description>A couple of weeks ago I ran into a problem where I needed to create some spatially correlated data for a project and I
+realized that I didn't know the first thing about how to go about doing it. I was lucky to find that the
+[paper](http://arxiv.org/abs/1601.01180) that I was trying to replicate did a great job of detailing their methods in
+such a way that I was able to create some spatial data of my own. The idea is that you need to create a covariance
 matrix of the relationships of your data to pull form a multivariate random normal distribution.
 
 </description>

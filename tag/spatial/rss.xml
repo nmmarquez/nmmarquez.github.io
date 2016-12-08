@@ -18,32 +18,32 @@
 	  <pubDate>2016-03-19T14:47:00-07:00</pubDate>
 	  <guid>//simulating-spatial-data</guid>
 	  <description><![CDATA[
-	     <p>A couple of weeks ago I ran into a problem where I needed to create some spatially correlated data for a project and I 
-realized that I didn’t know the first thing about how to go about doing it. I was lucky to find that the 
-<a href="http://arxiv.org/abs/1601.01180">paper</a> that I was trying to replicate did a great job of detailing their methods in 
-such a way that I was able to create some spatial data of my own. The idea is that you need to create a covariance 
+	     <p>A couple of weeks ago I ran into a problem where I needed to create some spatially correlated data for a project and I
+realized that I didn’t know the first thing about how to go about doing it. I was lucky to find that the
+<a href="http://arxiv.org/abs/1601.01180">paper</a> that I was trying to replicate did a great job of detailing their methods in
+such a way that I was able to create some spatial data of my own. The idea is that you need to create a covariance
 matrix of the relationships of your data to pull form a multivariate random normal distribution.</p>
 
 <script type="math/tex; mode=display">
 \mathcal{N}(\mu, \Sigma)
 </script>
 
-<p><script type="math/tex">\mu</script> is just the scalar mean and can be set to any real number but defining a sensible covariance matrix was 
-originally difficult. The way that Riebler et al. did it was by using a matrix Q </p>
+<p><script type="math/tex">\mu</script> is just the scalar mean and can be set to any real number but defining a sensible covariance matrix was
+originally difficult. The way that Riebler et al. did it was by using a matrix Q</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 
-Q_{i,j}= 
+Q_{i,j}=
 \begin{cases}
     n_{\delta_{i}},& \text{if  } i = j \\
     -1,              & \text{if  } i \sim j \\
     0, & \text{otherwise}
-    
+
 \end{cases}
  %]]></script>
 
-<p>where <script type="math/tex">\delta_{i}</script> is the number of neighbors a location has and <script type="math/tex">i \sim j</script> means that the two locations are 
-adjacent. Im used to working with spatial polygons data frames in R and found that its pretty easy to create this 
+<p>where <script type="math/tex">\delta_{i}</script> is the number of neighbors a location has and <script type="math/tex">i \sim j</script> means that the two locations are
+adjacent. Im used to working with spatial polygons data frames in R and found that its pretty easy to create this
 matrix with the right packages. Here’s an example with US state shape file.</p>
 
 <pre><code>library(sp)
@@ -68,12 +68,11 @@ Q &lt;- adjmat * -1
 diag(Q) &lt;- n_delta_i
 </code></pre>
 
-<p>Using the inverse of Q as the covariance matrix creates a smooth spatial dispersion, that you can see below, when 
-compared to just simple dispersion at random. A more complete example can be found 
+<p>Using the inverse of Q as the covariance matrix creates a smooth spatial dispersion, that you can see below, when
+compared to just simple dispersion at random. A more complete example can be found
 <a href="https://github.com/nmmarquez/spatial_epi/blob/master/project/project_outlay.r">here</a>.</p>
 
 <p><img src="/assets/images/spatial_sim_plot.png" alt="Alt text" title="If it fits I sits." /></p>
-
 
 	  ]]></description>
 	</item>
