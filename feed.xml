@@ -8,6 +8,20 @@
     
       
       <item>
+        <title>The Gibbs and MH Mix</title>
+        
+          <description>&lt;p&gt;For any one who writes anything data science related there comes a time when they discover the &lt;del&gt;pain&lt;/del&gt; joy of writing there own MCMC sampler from scratch and the inevitable need to tell everyone about it. For me, now is that time and after getting my butt kicked in my stochastic modeling class I fell like I need to at least write about the one thing that I did want to take away from the class and feel like I got a decent handle on.&lt;/p&gt;
+</description>
+        
+        <pubDate>Wed, 20 Dec 2017 10:00:00 +0000</pubDate>
+        <link>
+        http://localhost:4000/gibbs-hm-mix</link>
+        <guid isPermaLink="true">http://localhost:4000/gibbs-hm-mix</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Rejection Sampling</title>
         
           <description>&lt;p&gt;Rejection sampling allows us to sample from some target distribution when we have a proposal distribution. The algorithm works by first drawing a random value, say \(u\), that is between zero and one from uniform (\(U(0,1)\)) distribution. Next a random value for \(x\) is drawn from the proposal distribution \(f(x)\). Finally there is an acceptance/rejection step that asks: if the probability \(u\) is less than the density of \(g(x)\) at \(x\) divided by the density of \(f(x)*p_A\) then we&amp;#39;ll accept \(x\) as having been drawn from \(g(x)\). If not well sample another value for \(x\) from \(f(x)\) and try again.&lt;/p&gt;
