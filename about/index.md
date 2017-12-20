@@ -26,7 +26,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//about/" />
+        <link rel="canonical" href="http://localhost:4000//about/index.md" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
@@ -34,13 +34,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="About" />
     <meta property="og:description" content="Demography, Data Science, and other Deliberations" />
-    <meta property="og:url" content="http://localhost:4000//about/" />
+    <meta property="og:url" content="http://localhost:4000//about/index.md" />
     <meta property="og:image" content="/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="About" />
     <meta name="twitter:description" content="Demography, Data Science, and other Deliberations" />
-    <meta name="twitter:url" content="http://localhost:4000//about/" />
+    <meta name="twitter:url" content="http://localhost:4000//about/index.md" />
     <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
@@ -49,7 +49,7 @@
     "@type": "Website",
     "publisher": "Random Ramble with Drift",
     "name": "About",
-    "url": "http://localhost:4000//about/",
+    "url": "http://localhost:4000//about/index.md",
     "image": "/assets/images/cover1.jpg",
     "description": "Demography, Data Science, and other Deliberations"
 }
@@ -107,13 +107,12 @@
         </header>
 
         <section class="post-content">
-            <p>A blog where a non-profit worker/student cant get out all his ramblings in one digital format. I am currently a
+            A blog where a non-profit worker/student cant get out all his ramblings in one digital format. I am currently a
 student of public health at the University of Washington pursuing a MPH. I also work with the Institute of Health
 Metrics and Evaluation as well as the Peers and Wellness study team at the University of California San Francisco.
 Born and raised in Santa Ana, CA I am a data hacker at heart with an affinity towards measuring demographic
 transitions and how informed public policy can best benefit the people who live in a particular urban area. A winded
-way of saying I haven&#39;t chosen a &ldquo;career&rdquo; yet.</p>
-
+way of saying I haven't chosen a "career" yet.
         </section>
 
     </article>

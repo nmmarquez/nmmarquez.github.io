@@ -5,24 +5,24 @@
    
       <title>nmmarquez.github.io/</title>
    
-   <link>http://nmmarquez.github.io/</link>
+   <link>http://localhost:4000</link>
    <description>Demography, Data Science, and other Deliberations</description>
    <language>en-uk</language>
-   <managingEditor> Neal Marquez</managingEditor>
+   <managingEditor> Neal</managingEditor>
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
 	  <title>Latex with Jekyll</title>
 	  <link>//latex-with-jekyll</link>
-	  <author>Neal Marquez</author>
-	  <pubDate>2016-03-18T03:18:00-07:00</pubDate>
+	  <author>Neal</author>
+	  <pubDate>2016-03-18T10:18:00-07:00</pubDate>
 	  <guid>//latex-with-jekyll</guid>
 	  <description><![CDATA[
-	     <p>I am trying out a new layout that will hopefully let me do inline latex like so <script type="math/tex">\beta</script> as well as its own thing like  </p>
+	     <p>I am trying out a new layout that will hopefully let me do inline latex like so \(\beta\) as well as its own thing like  </p>
 
-<script type="math/tex; mode=display">
-Y = \beta_0 + x * \beta_1 
-</script>
+<p>\[
+Y = \beta_0 + x * \beta_1
+\]</p>
 
 	  ]]></description>
 	</item>
@@ -30,7 +30,7 @@ Y = \beta_0 + x * \beta_1
 	<item>
 	  <title>Hello Worlds</title>
 	  <link>//hello-worlds</link>
-	  <author>Neal Marquez</author>
+	  <author>Neal</author>
 	  <pubDate>2016-03-18T03:18:00-07:00</pubDate>
 	  <guid>//hello-worlds</guid>
 	  <description><![CDATA[

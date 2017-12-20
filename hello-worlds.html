@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>About</title>
+    <title>Hello Worlds</title>
     <meta name="description" content="Demography, Data Science, and other Deliberations" />
 
     <!-- Mobile Meta -->
@@ -26,21 +26,21 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//about/" />
+        <link rel="canonical" href="http://localhost:4000//hello-worlds" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Random Ramble with Drift" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="About" />
+    <meta property="og:title" content="Hello Worlds" />
     <meta property="og:description" content="Demography, Data Science, and other Deliberations" />
-    <meta property="og:url" content="http://localhost:4000//about/" />
+    <meta property="og:url" content="http://localhost:4000//hello-worlds" />
     <meta property="og:image" content="/assets/images/cover1.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="About" />
+    <meta name="twitter:title" content="Hello Worlds" />
     <meta name="twitter:description" content="Demography, Data Science, and other Deliberations" />
-    <meta name="twitter:url" content="http://localhost:4000//about/" />
+    <meta name="twitter:url" content="http://localhost:4000//hello-worlds" />
     <meta name="twitter:image:src" content="/assets/images/cover1.jpg" />
 
     <script type="application/ld+json">
@@ -48,8 +48,8 @@
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Random Ramble with Drift",
-    "name": "About",
-    "url": "http://localhost:4000//about/",
+    "name": "Hello Worlds",
+    "url": "http://localhost:4000//hello-worlds",
     "image": "/assets/images/cover1.jpg",
     "description": "Demography, Data Science, and other Deliberations"
 }
@@ -60,7 +60,7 @@
 
 
 </head>
-<body class="post nav-closed">
+<body class="home-template nav-closed">
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!-- The blog navigation links -->
     <div class="nav">
@@ -70,7 +70,7 @@
     </a>
     <ul>
         <li class="nav-home " role="presentation"><a href="/">Home</a></li>
-        <li class="nav-about  nav-current" role="presentation"><a href="/about">About</a></li>
+        <li class="nav-about " role="presentation"><a href="/about">About</a></li>
         <li class="nav-author " role="presentation"><a href="/author/Neal">Neal</a></li>
     </ul>
     <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
@@ -81,16 +81,16 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- < default -->
+        <!-- default -->
 
-<!-- This is a page template. A page outputs content just like any other post, and has all the same -->
-    <!-- attributes by default, but you can also customise it to behave differently if you prefer.  -->
+<!-- The comment above "< default" means - insert everything in this file into -->
+    <!-- the [body] of the default.hbs template, which contains our header/footer. -->
 
-<!-- Everything inside the #post tags pulls data from the page -->
+<!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head no-cover">
-    <nav class="main-nav  clearfix">
+<header class="main-header post-head " style="background-image: url(/assets/images/cover1.jpg) ">
+    <nav class="main-nav  overlay  clearfix">
         <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
         
             <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
@@ -99,25 +99,114 @@
 </header>
 
 <main class="content" role="main">
-    <article class="post">
-        <!-- Everything inside the #post tags pulls data from the post -->
+
+    <article class="post tag-fiction">
 
         <header class="post-header">
-            <h1 class="post-title">About</h1>
+            <h1 class="post-title">Hello Worlds</h1>
+            <section class="post-meta">
+            <!-- <a href='/'>Neal</a> -->
+
+            
+                
+                    <a href='/author/Neal'>Neal Marquez</a>
+                
+            
+            <time class="post-date" datetime="2016-03-18">18 Mar 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/test'>Test</a>,
+                    
+                
+                    
+                       <a href='/tag/content'>Content</a>
+                    
+                
+                
+            </section>
         </header>
 
         <section class="post-content">
-            <p>A blog where a non-profit worker/student cant get out all his ramblings in one digital format. I am currently a
-student of public health at the University of Washington pursuing a MPH. I also work with the Institute of Health
-Metrics and Evaluation as well as the Peers and Wellness study team at the University of California San Francisco.
-Born and raised in Santa Ana, CA I am a data hacker at heart with an affinity towards measuring demographic
-transitions and how informed public policy can best benefit the people who live in a particular urban area. A winded
-way of saying I haven&#39;t chosen a &ldquo;career&rdquo; yet.</p>
+
+            <p>Setting up a blog so I have a place to post my ideas and work that I manage to do outside of work and school (ha!).
+Hoping this is the beginning of something long and beautiful so here goes nothing.</p>
+
 
         </section>
 
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+            
+                
+                    
+                        <figure class="author-image">
+                            <a class="img" href="/author/Neal" style="background-image: url(/assets/images/huitzilopochtli.png)"><span class="hidden">Neal's Picture</span></a>
+                        </figure>
+                    
+
+                    <section class="author">
+                        <h4><a href="/author/Neal">Neal Marquez</a></h4>
+
+                        
+                            <p> Need Bio.</p>
+                        
+                        <div class="author-meta">
+                            <span class="author-location icon-location"> Seattle, WA, USA</span>
+                            <span class="author-link icon-link"><a href="http://nmmarquez.github.io/"> nmmarquez.github.io/</a></span>
+                        </div>
+                    </section>
+
+                    <!-- /author  -->
+
+                    <section class="share">
+                        <h4>Share this post</h4>
+                        <a class="icon-twitter" href="http://twitter.com/share?text=Hello Worlds&amp;url=http://localhost:4000hello-worlds"
+                            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                            <span class="hidden">Twitter</span>
+                        </a>
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000hello-worlds"
+                            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                            <span class="hidden">Facebook</span>
+                        </a>
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000hello-worlds"
+                           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                            <span class="hidden">Google+</span>
+                        </a>
+                    </section>
+                
+            
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
     </article>
+
 </main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story " style="background-image: url(/assets/images/latex.jpg)" href="/latex-with-jekyll">
+            <section class="post">
+                <h2>Latex with Jekyll</h2>
+                <p>I am trying out a new layout that will hopefully let me do inline latex...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
 <!-- /post -->
 
 
