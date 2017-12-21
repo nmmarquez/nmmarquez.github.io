@@ -91,7 +91,7 @@
 <li>Repeat steps 2-6 1000000 times recording each new iteration of parameters \(\boldsymbol{\theta}, \alpha, \beta\)<br/></li>
 </ol>
 
-<p>If we account for some burn in for the obviously terrible parameters we choose at the begging then we should get something that looks decent. All this math is no fun unless we could do this in <code>R</code> so the post ends with that.</p>
+<p>If we account for some burn in for the obviously terrible parameters we choose at the beggining then we should get something that looks decent. All this math is no fun unless we could do this in <code>R</code> so the post ends with that.</p>
 
 <pre><code>library(dplyr)
 library(ggplot2)

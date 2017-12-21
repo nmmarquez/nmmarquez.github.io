@@ -8,6 +8,20 @@
     
       
       <item>
+        <title>R Shiny Server</title>
+        
+          <description>&lt;p&gt;Setting up your own shiny server can be helpful to host a few small projects that you want to share with a few collaborators. I am going to go through the setup of starting a server, like through Amazon EWS or Digital Ocean, and through the necessary steps that you will need to take in order to be able to get access to that server securely. These instructions are specific to Ubuntu 16.04 but shouldn&amp;#39;t change that much across different versions.&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 21 Dec 2017 10:00:00 +0000</pubDate>
+        <link>
+        http://localhost:4000/R-shiny-server</link>
+        <guid isPermaLink="true">http://localhost:4000/R-shiny-server</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>The Gibbs and MH Mix</title>
         
           <description>&lt;p&gt;For any one who writes anything data science related there comes a time when they discover the &lt;del&gt;pain&lt;/del&gt; joy of writing there own MCMC sampler from scratch and the inevitable need to tell everyone about it. For me, now is that time and after getting my butt kicked in my stochastic modeling class I fell like I need to at least write about the one thing that I did want to take away from the class and feel like I got a decent handle on.&lt;/p&gt;

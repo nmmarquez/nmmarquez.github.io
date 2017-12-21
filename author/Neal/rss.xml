@@ -12,6 +12,94 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>R Shiny Server</title>
+	  <link>//R-shiny-server</link>
+	  <author>Neal</author>
+	  <pubDate>2017-12-21T02:00:00-08:00</pubDate>
+	  <guid>//R-shiny-server</guid>
+	  <description><![CDATA[
+	     <p>Setting up your own shiny server can be helpful to host a few small projects that you want to share with a few collaborators. I am going to go through the setup of starting a server, like through Amazon EWS or Digital Ocean, and through the necessary steps that you will need to take in order to be able to get access to that server securely. These instructions are specific to Ubuntu 16.04 but shouldn&#39;t change that much across different versions.</p>
+
+<p>The first thing to do is set up a new user that isn&#39;t <code>ubuntu</code> that we can log in with via ssh later and then we can disable logging in with the <code>ubuntu</code> user, which is way to common a name. Check out the following code to create a new user and give it <code>sudo</code> privileges.</p>
+
+<pre><code># before you do anything lets update our system
+sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade
+# create newuser
+sudo adduser newuser
+# grant sudo privileges
+sudo usermod -aG sudo newuser
+</code></pre>
+
+<p>You are also going to set up authorized keys for this user and make sure to disable password logins in the <code>/etc/ssh/sshd_config</code> file by uncommenting or changing the line <code>PasswordAuthentication yes</code> to <code>no</code>, after we have tested that our ssh keys are working, followed by a <code>sudo systemctl reload sshd</code>. Depending on how may precautions you want to take it may be a good idea to also change the port number for ssh protocol in the same file just so your server isn&#39;t such an easy target for automated attacks.</p>
+
+<pre><code># On home computer
+# follow the instructions and be sure to remember save location
+ssh-keygen -t rsa
+# copy the credentials to the server
+ssh-copy-id newuser@server_ip
+cat ~/.ssh/key.pub | ssh newuser@server_ip &quot;cat &gt;  ~/.ssh/authorized_keys&quot;
+ # test out the key
+ssh -i ~/.ssh/key.pub newuser@server_ip
+</code></pre>
+
+<p>We now want to setup a firewall for added security so that we are exactly in control of what process may access our system. The command <code>sudo ufw app list</code> will list all of the programs that are directly compatible with the simple firewall Ubuntu uses which is likely only <code>OpenSSH</code> at this point. We can tell the firewall to allow ssh to the default port by running <code>sudo ufw allow OpenSSH</code> ands we can allow ssh into other ports, if you took the precautions mentioned earlier, with the command <code>sudo ufw allow &lt;port number&gt;/tcp</code>. So your command list might look something like this.</p>
+
+<pre><code># check out the apps ufw supports
+sudo ufw app list
+# allow OpenSSH
+sudo ufw allow OpenSSH
+# allow ssh to some other &lt;port number&gt; if necessary
+sudo ufw allow &lt;port number&gt;/tcp
+# enable the firewall
+sudo ufw enable
+# see the programs that are allowed by the firewall
+sudo ufw status
+</code></pre>
+
+<p>We now want to set up a web server and the easiest one to work with on Ubuntu is nginx. The instructions below are pretty self explanatory after the previous explanation.</p>
+
+<pre><code># install nginx
+sudo apt-get install nginx
+# make sure nginx shows up on the list now for the firewall
+sudo ufw app list
+# allow nginx for both http and https protocol
+sudo ufw allow &#39;Nginx Full&#39;
+# check the status to make sure nginx is good
+sudo ufw status
+# make sure nginx is running you should see Active (running) as the status
+systemctl status nginx
+</code></pre>
+
+<p>You can then check to make sure that the webserver is running by visiting your ip in a web browser. You should see the welcome page for nginx. More details for setting up the system can be found <a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04">here</a>. Because we also want to run encrypted transactions over https as well as a bot that will renew your certificates after they expire which happens in 30 days when using the free ssl certification service offered by Lets Encrypt.</p>
+
+<pre><code># get the cert bot lets encrypt ppa for Ubuntu
+sudo add-apt-repository ppa:certbot/certbot
+# gotta update your system again
+sudo apt-get update
+# install certbot
+sudo apt-get install certbot python-certbot-nginx
+# get your initial certificates
+sudo certbot certonly --nginx -d your.ip.or.domain
+</code></pre>
+
+<p>We can make sure that the full process of renewal is automated by editing <code>/etc/letsencrypt/renewal/example.com.conf</code> where <code>example.com</code> is your ip address or DNS and adding the following file <code>renew_hook = systemctl reload rabbitmq</code>. You can test out the renewal process with a dry run <code>sudo certbot renew --dry-run</code>.</p>
+
+<p>It may be helpful to set up a web address that links to your ip at this point but that is beyond the scope of this tutorial. Before we get started with R shiny install the last thing that you need to do is install the latest version of <code>R</code>.</p>
+
+<pre><code>sudo add-apt-repository &quot;deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -sc)/&quot;
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+sudo add-apt-repository ppa:marutter/rdev
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install r-base
+</code></pre>
+
+<p>With that out of the way you should be able to use the <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-shiny-server-on-ubuntu-16-04">Digital Ocean guide</a> for installing a R shiny server and be good to go.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>The Gibbs and MH Mix</title>
 	  <link>//gibbs-hm-mix</link>
 	  <author>Neal</author>
@@ -91,7 +179,7 @@
 <li>Repeat steps 2-6 1000000 times recording each new iteration of parameters \(\boldsymbol{\theta}, \alpha, \beta\)<br/></li>
 </ol>
 
-<p>If we account for some burn in for the obviously terrible parameters we choose at the begging then we should get something that looks decent. All this math is no fun unless we could do this in <code>R</code> so the post ends with that.</p>
+<p>If we account for some burn in for the obviously terrible parameters we choose at the beggining then we should get something that looks decent. All this math is no fun unless we could do this in <code>R</code> so the post ends with that.</p>
 
 <pre><code>library(dplyr)
 library(ggplot2)
