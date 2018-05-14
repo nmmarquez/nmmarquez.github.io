@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Page Meta -->
-    <title>Random Ramble with Drift</title>
+    <title>Author</title>
     <meta name="description" content="Demography, Data Science, and other Deliberations" />
 
     <!-- Mobile Meta -->
@@ -26,31 +26,31 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//tag/simulation/" />
+        <link rel="canonical" href="http://localhost:4000//author/hackz/" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
     <meta property="og:site_name" content="Random Ramble with Drift" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Random Ramble with Drift" />
+    <meta property="og:title" content="Author" />
     <meta property="og:description" content="Demography, Data Science, and other Deliberations" />
-    <meta property="og:url" content="http://localhost:4000//tag/simulation/" />
-    <meta property="og:image" content="/assets/images/cover2.jpg" />
+    <meta property="og:url" content="http://localhost:4000//author/hackz/" />
+    <meta property="og:image" content="/assets/images/cover4.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Random Ramble with Drift" />
+    <meta name="twitter:title" content="Author" />
     <meta name="twitter:description" content="Demography, Data Science, and other Deliberations" />
-    <meta name="twitter:url" content="http://localhost:4000//tag/simulation/" />
-    <meta name="twitter:image:src" content="/assets/images/cover2.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000//author/hackz/" />
+    <meta name="twitter:image:src" content="/assets/images/cover4.jpg" />
 
     <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "Website",
     "publisher": "Random Ramble with Drift",
-    "name": "Random Ramble with Drift",
-    "url": "http://localhost:4000//tag/simulation/",
-    "image": "/assets/images/cover2.jpg",
+    "name": "Author",
+    "url": "http://localhost:4000//author/hackz/",
+    "image": "/assets/images/cover4.jpg",
     "description": "Demography, Data Science, and other Deliberations"
 }
     </script>
@@ -61,7 +61,7 @@
 
 
 </head>
-<body class="tag-template nav-closed">
+<body class="author-template nav-closed">
 
     <!-- The blog navigation links -->
     <div class="nav">
@@ -82,48 +82,170 @@
     <div class="site-wrapper">
 
         <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-        <!-- dynamically overriding backgrounds for tags as well as descriptions -->
-
-
-<!-- default -->
+        <!-- < default}} -->
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
-<!-- If we have a tag cover, display that - else blog cover - else nothing -->
-<header class="main-header tag-head " style="background-image: url(/assets/images/cover2.jpg) ">
-    <nav class="main-nav overlay clearfix">
-        <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
-        
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        
-    </nav>
-    <div class="vertical">
-        <div class="main-header-content inner">
-            <h1 class="page-title">Simulation</h1>
-            <h2 class="page-description">
+<!-- The big featured header -->
+
+<!-- Everything inside the #author tags pulls data from the author -->
+<!-- #author  -->
+    <header class="main-header author-head " style="background-image: url(/assets/images/cover4.jpg) ">
+        <nav class="main-nav overlay clearfix">
+            <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
             
-			    A 2-post collection
+                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
             
-            </h2>
-        </div>
-    </div>
-</header>
+        </nav>
+    </header>
+
+    <section class="author-profile inner">
+        
+            
+                
+                <figure class="author-image">
+                    <div class="img" style="background-image: url(/assets/images/huitzilopochtli.png)"><span class="hidden">Neal Marquez's Picture</span></div>
+                </figure>
+                
+                <h1 class="author-title">Neal Marquez</h1>
+                
+                    <div style="display:inline; text-align: justify; text-justify: inter-word;">
+                        <h2 class="author-bio">Grad Student, Novice Nueromancer, Lengua Lover</h2>
+                    </div>
+                
+                <div class="author-meta">
+                    <span class="author-location icon-location">Seattle, WA</span>
+                    <span class="author-link icon-link"><a href="http://nmmarquez.github.io">nmmarquez.github.io</a></span>
+                    <!-- <span class="author-stats"><i class="icon-stats"></i> [[plural ../pagination.total empty='No posts' singular='% post' plural='% posts']]</span> -->
+                    <span class="author-stats"><i class="icon-stats"></i>7 posts</span>
+                </div>
+            
+        
+    </section>
+<!-- /author -->
 
 <!-- The main content area on the homepage -->
 <main id="content" class="content" role="main">
 
-    <!-- The tag below includes the post loop - partials/loop.hbs -->
+    <!-- The tag below includes the post loop - partials/loop.hbs  -->
         <!-- Previous/next page links - only displayed on page 2+ -->
     <div class="extra-pagination inner">
         
             <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+    <span class="page-number"> Page 1 of 2 </span>
+     
+        <a class="older-posts" href="/author//page2/" title="Next Page">Older Posts &raquo;</a>
      
 </nav>
         
     </div>
 
     <!-- This is the post loop - each post will be output using this markup -->
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/r-shiny-server">R Shiny Server</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>Setting up your own shiny server can be helpful to host a few small projects that you want to share with a few collaborators. I am... <a class="read-more" href="/r-shiny-server">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+
+                <img class="author-thumb" src="/assets/images/huitzilopochtli.png" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/hackz'>Neal Marquez</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/R'>R</a>,
+                    
+                
+                    
+                       <a href='/tag/Statistics'>Statistics</a>
+                    
+                
+            
+            <time class="post-date" datetime="2017-12-21">21 Dec 2017</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/the-gibbs-and-MH-Mix">The Gibbs and MH Mix</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>For any one who writes anything data science related there comes a time when they discover the pain joy of writing there own MCMC sampler from... <a class="read-more" href="/the-gibbs-and-MH-Mix">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+
+                <img class="author-thumb" src="/assets/images/huitzilopochtli.png" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/hackz'>Neal Marquez</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/R'>R</a>,
+                    
+                
+                    
+                       <a href='/tag/Statistics'>Statistics</a>
+                    
+                
+            
+            <time class="post-date" datetime="2017-12-20">20 Dec 2017</time>
+        </footer>
+    </article>
+    
+    <article class="post">
+        <header class="post-header">
+            <h2 class="post-title"><a href="/Rejection-Sampling">Rejection Sampling</a></h2>
+        </header>
+        <section class="post-excerpt">
+            <p>Rejection sampling allows us to sample from some target distribution when we have a proposal distribution. The algorithm works by first drawing a random value, say... <a class="read-more" href="/Rejection-Sampling">&raquo;</a></p>
+        </section>
+        <footer class="post-meta">
+            
+                
+
+                <img class="author-thumb" src="/assets/images/huitzilopochtli.png" alt="Author image" nopin="nopin" />
+                <!-- author -->
+                <a href='/author/hackz'>Neal Marquez</a>
+
+                
+            
+
+            <!-- [[tags prefix=" on "]] -->
+            
+                on
+                
+                    
+                       <a href='/tag/R'>R</a>,
+                    
+                
+                    
+                       <a href='/tag/Simulation'>Simulation</a>
+                    
+                
+            
+            <time class="post-date" datetime="2017-12-19">19 Dec 2017</time>
+        </footer>
+    </article>
     
     <article class="post">
         <header class="post-header">
@@ -204,7 +326,9 @@
     
         <nav class="pagination" role="pagination">
     
-    <span class="page-number"> Page 1 of 1 </span>
+    <span class="page-number"> Page 1 of 2 </span>
+     
+        <a class="older-posts" href="/author//page2/" title="Next Page">Older Posts &raquo;</a>
      
 </nav>
     

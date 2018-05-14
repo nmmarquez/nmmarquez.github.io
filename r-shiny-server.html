@@ -26,7 +26,7 @@
     <style>.hljs { background: none; }</style>
 
     <!-- Ghost outputs important style and meta data with this tag -->
-        <link rel="canonical" href="http://localhost:4000//R-shiny-server" />
+        <link rel="canonical" href="http://localhost:4000//r-shiny-server" />
     <meta name="referrer" content="origin" />
     <link rel="next" href="/page2/" />
 
@@ -34,13 +34,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="R Shiny Server" />
     <meta property="og:description" content="Demography, Data Science, and other Deliberations" />
-    <meta property="og:url" content="http://localhost:4000//R-shiny-server" />
+    <meta property="og:url" content="http://localhost:4000//r-shiny-server" />
     <meta property="og:image" content="/assets/images/rainier-3.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="R Shiny Server" />
     <meta name="twitter:description" content="Demography, Data Science, and other Deliberations" />
-    <meta name="twitter:url" content="http://localhost:4000//R-shiny-server" />
+    <meta name="twitter:url" content="http://localhost:4000//r-shiny-server" />
     <meta name="twitter:image:src" content="/assets/images/rainier-3.jpg" />
 
     <script type="application/ld+json">
@@ -49,19 +49,20 @@
     "@type": "Website",
     "publisher": "Random Ramble with Drift",
     "name": "R Shiny Server",
-    "url": "http://localhost:4000//R-shiny-server",
+    "url": "http://localhost:4000//r-shiny-server",
     "image": "/assets/images/rainier-3.jpg",
     "description": "Demography, Data Science, and other Deliberations"
 }
     </script>
 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <meta name="generator" content="Jekyll 3.0.0" />
     <link rel="alternate" type="application/rss+xml" title="Random Ramble with Drift" href="/feed.xml" />
 
 
 </head>
 <body class="home-template nav-closed">
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
     <!-- The blog navigation links -->
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
@@ -71,7 +72,7 @@
     <ul>
         <li class="nav-home " role="presentation"><a href="/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/about">About</a></li>
-        <li class="nav-author " role="presentation"><a href="/author/Neal">Neal</a></li>
+        <li class="nav-author " role="presentation"><a href="/author/hackz">Neal</a></li>
     </ul>
     <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
 </div>
@@ -105,11 +106,11 @@
         <header class="post-header">
             <h1 class="post-title">R Shiny Server</h1>
             <section class="post-meta">
-            <!-- <a href='/'>Neal</a> -->
+            <!-- <a href='/'></a> -->
 
             
                 
-                    <a href='/author/Neal'>Neal Marquez</a>
+                    <a href='/author/hackz'>Neal Marquez</a>
                 
             
             <time class="post-date" datetime="2017-12-21">21 Dec 2017</time>
@@ -122,7 +123,7 @@
                     
                 
                     
-                       <a href='/tag/programming'>Programming</a>
+                       <a href='/tag/Statistics'>Statistics</a>
                     
                 
                 
@@ -131,33 +132,33 @@
 
         <section class="post-content">
 
-            <p>Setting up your own shiny server can be helpful to host a few small projects that you want to share with a few collaborators. I am going to go through the setup of starting a server, like through Amazon EWS or Digital Ocean, and through the necessary steps that you will need to take in order to be able to get access to that server securely. These instructions are specific to Ubuntu 16.04 but shouldn&#39;t change that much across different versions.</p>
+            <p>Setting up your own shiny server can be helpful to host a few small projects that you want to share with a few collaborators. I am going to go through the setup of starting a server, like through Amazon EWS or Digital Ocean, and through the necessary steps that you will need to take in order to be able to get access to that server securely. These instructions are specific to <code class="highlighter-rouge">ubuntu</code> 16.04 but shouldn’t change that much across different versions.</p>
 
-<p>The first thing to do is set up a new user that isn&#39;t <code>ubuntu</code> that we can log in with via ssh later and then we can disable logging in with the <code>ubuntu</code> user, which is way to common a name. Check out the following code to create a new user and give it <code>sudo</code> privileges.</p>
+<p>The first thing to do is set up a new user that isn’t <code class="highlighter-rouge">ubuntu</code> that we can log in with via ssh later and then we can disable logging in with the <code class="highlighter-rouge">ubuntu</code> user, which is way to common a name. Check out the following code to create a new user and give it <code class="highlighter-rouge">sudo</code> privileges.</p>
 
-<pre><code># before you do anything lets update our system
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># before you do anything lets update our system
 sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade
 # create newuser
 sudo adduser newuser
 # grant sudo privileges
 sudo usermod -aG sudo newuser
-</code></pre>
+</code></pre></div></div>
 
-<p>You are also going to set up authorized keys for this user and make sure to disable password logins in the <code>/etc/ssh/sshd_config</code> file by uncommenting or changing the line <code>PasswordAuthentication yes</code> to <code>no</code>, after we have tested that our ssh keys are working, followed by a <code>sudo systemctl reload sshd</code>. Depending on how may precautions you want to take it may be a good idea to also change the port number for ssh protocol in the same file just so your server isn&#39;t such an easy target for automated attacks.</p>
+<p>You are also going to set up authorized keys for this user and make sure to disable password logins in the <code class="highlighter-rouge">/etc/ssh/sshd_config</code> file by uncommenting or changing the line <code class="highlighter-rouge">PasswordAuthentication yes</code> to <code class="highlighter-rouge">no</code>, after we have tested that our ssh keys are working, followed by a <code class="highlighter-rouge">sudo systemctl reload sshd</code>. Depending on how may precautions you want to take it may be a good idea to also change the port number for ssh protocol in the same file just so your server isn’t such an easy target for automated attacks.</p>
 
-<pre><code># On home computer
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># On home computer
 # follow the instructions and be sure to remember save location
 ssh-keygen -t rsa
 # copy the credentials to the server
 ssh-copy-id newuser@server_ip
-cat ~/.ssh/key.pub | ssh newuser@server_ip &quot;cat &gt;  ~/.ssh/authorized_keys&quot;
+cat ~/.ssh/key.pub | ssh newuser@server_ip "cat &gt;  ~/.ssh/authorized_keys"
  # test out the key
 ssh -i ~/.ssh/key.pub newuser@server_ip
-</code></pre>
+</code></pre></div></div>
 
-<p>We now want to setup a firewall for added security so that we are exactly in control of what process may access our system. The command <code>sudo ufw app list</code> will list all of the programs that are directly compatible with the simple firewall Ubuntu uses which is likely only <code>OpenSSH</code> at this point. We can tell the firewall to allow ssh to the default port by running <code>sudo ufw allow OpenSSH</code> ands we can allow ssh into other ports, if you took the precautions mentioned earlier, with the command <code>sudo ufw allow &lt;port number&gt;/tcp</code>. So your command list might look something like this.</p>
+<p>We now want to setup a firewall for added security so that we are exactly in control of what process may access our system. The command <code class="highlighter-rouge">sudo ufw app list</code> will list all of the programs that are directly compatible with the simple firewall Ubuntu uses which is likely only <code class="highlighter-rouge">OpenSSH</code> at this point. We can tell the firewall to allow ssh to the default port by running <code class="highlighter-rouge">sudo ufw allow OpenSSH</code>. We can allow ssh into other ports, if you took the precautions mentioned earlier, with the command <code class="highlighter-rouge">sudo ufw allow &lt;port number&gt;/tcp</code>. So your command list might look something like this.</p>
 
-<pre><code># check out the apps ufw supports
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># check out the apps ufw supports
 sudo ufw app list
 # allow OpenSSH
 sudo ufw allow OpenSSH
@@ -167,25 +168,25 @@ sudo ufw allow &lt;port number&gt;/tcp
 sudo ufw enable
 # see the programs that are allowed by the firewall
 sudo ufw status
-</code></pre>
+</code></pre></div></div>
 
 <p>We now want to set up a web server and the easiest one to work with on Ubuntu is nginx. The instructions below are pretty self explanatory after the previous explanation.</p>
 
-<pre><code># install nginx
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># install nginx
 sudo apt-get install nginx
 # make sure nginx shows up on the list now for the firewall
 sudo ufw app list
 # allow nginx for both http and https protocol
-sudo ufw allow &#39;Nginx Full&#39;
+sudo ufw allow 'Nginx Full'
 # check the status to make sure nginx is good
 sudo ufw status
 # make sure nginx is running you should see Active (running) as the status
 systemctl status nginx
-</code></pre>
+</code></pre></div></div>
 
 <p>You can then check to make sure that the webserver is running by visiting your ip in a web browser. You should see the welcome page for nginx. More details for setting up the system can be found <a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-16-04">here</a>. Because we also want to run encrypted transactions over https as well as a bot that will renew your certificates after they expire which happens in 30 days when using the free ssl certification service offered by Lets Encrypt.</p>
 
-<pre><code># get the cert bot lets encrypt ppa for Ubuntu
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># get the cert bot lets encrypt ppa for Ubuntu
 sudo add-apt-repository ppa:certbot/certbot
 # gotta update your system again
 sudo apt-get update
@@ -193,19 +194,19 @@ sudo apt-get update
 sudo apt-get install certbot python-certbot-nginx
 # get your initial certificates
 sudo certbot certonly --nginx -d your.ip.or.domain
-</code></pre>
+</code></pre></div></div>
 
-<p>We can make sure that the full process of renewal is automated by editing <code>/etc/letsencrypt/renewal/example.com.conf</code> where <code>example.com</code> is your ip address or DNS and adding the following file <code>renew_hook = systemctl reload rabbitmq</code>. You can test out the renewal process with a dry run <code>sudo certbot renew --dry-run</code>.</p>
+<p>We can make sure that the full process of renewal is automated by editing <code class="highlighter-rouge">/etc/letsencrypt/renewal/example.com.conf</code> where <code class="highlighter-rouge">example.com</code> is your ip address or DNS and adding the following file <code class="highlighter-rouge">renew_hook = systemctl reload rabbitmq</code>. You can test out the renewal process with a dry run <code class="highlighter-rouge">sudo certbot renew --dry-run</code>.</p>
 
-<p>It may be helpful to set up a web address that links to your ip at this point but that is beyond the scope of this tutorial. Before we get started with R shiny install the last thing that you need to do is install the latest version of <code>R</code>.</p>
+<p>It may be helpful to set up a web address that links to your ip at this point but that is beyond the scope of this tutorial. Before we get started with R shiny install the last thing that you need to do is install the latest version of <code class="highlighter-rouge">R</code>.</p>
 
-<pre><code>sudo add-apt-repository &quot;deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -sc)/&quot;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository "deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -sc)/"
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 sudo add-apt-repository ppa:marutter/rdev
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install r-base
-</code></pre>
+</code></pre></div></div>
 
 <p>With that out of the way you should be able to use the <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-shiny-server-on-ubuntu-16-04">Digital Ocean guide</a> for installing a R shiny server and be good to go.</p>
 
@@ -220,19 +221,19 @@ sudo apt-get install r-base
                 
                     
                         <figure class="author-image">
-                            <a class="img" href="/author/Neal" style="background-image: url(/assets/images/huitzilopochtli.png)"><span class="hidden">Neal's Picture</span></a>
+                            <a class="img" href="/author/hackz" style="background-image: url(/assets/images/huitzilopochtli.png)"><span class="hidden">hackz's Picture</span></a>
                         </figure>
                     
 
                     <section class="author">
-                        <h4><a href="/author/Neal">Neal Marquez</a></h4>
+                        <h4><a href="/author/hackz">Neal Marquez</a></h4>
 
                         
                             <p> Grad Student, Novice Nueromancer, Lengua Lover</p>
                         
                         <div class="author-meta">
-                            <span class="author-location icon-location"> Seattle, WA, USA</span>
-                            <span class="author-link icon-link"><a href="http://nmmarquez.github.io/"> nmmarquez.github.io/</a></span>
+                            <span class="author-location icon-location"> Seattle, WA</span>
+                            <span class="author-link icon-link"><a href="http://nmmarquez.github.io"> nmmarquez.github.io</a></span>
                         </div>
                     </section>
 
@@ -240,15 +241,15 @@ sudo apt-get install r-base
 
                     <section class="share">
                         <h4>Share this post</h4>
-                        <a class="icon-twitter" href="http://twitter.com/share?text=R Shiny Server&amp;url=http://localhost:4000R-shiny-server"
+                        <a class="icon-twitter" href="http://twitter.com/share?text=R Shiny Server&amp;url=http://localhost:4000r-shiny-server"
                             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                             <span class="hidden">Twitter</span>
                         </a>
-                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000R-shiny-server"
+                        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000r-shiny-server"
                             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                             <span class="hidden">Facebook</span>
                         </a>
-                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000R-shiny-server"
+                        <a class="icon-google-plus" href="https://plus.google.com/share?url=http://localhost:4000r-shiny-server"
                            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                             <span class="hidden">Google+</span>
                         </a>
@@ -272,7 +273,7 @@ sudo apt-get install r-base
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/rainier-3.jpg)" href="/gibbs-hm-mix">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/rainier-3.jpg)" href="/the-gibbs-and-MH-Mix">
             <section class="post">
                 <h2>The Gibbs and MH Mix</h2>
                 <p>For any one who writes anything data science related there comes a time when they...</p>
@@ -287,8 +288,8 @@ sudo apt-get install r-base
 
         <!-- The tiny footer at the very bottom -->
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="/">Random Ramble with Drift</a> &copy; 2017</section>
-          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/myjekyll/jasper">Jasper</a></section>
+          <section class="copyright"><a href="/">Random Ramble with Drift</a> &copy; 2018</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
         </footer>
     </div>
     <!-- highlight.js -->
@@ -307,7 +308,7 @@ sudo apt-get install r-base
 	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	    ga('create', 'UA-75303454-1', 'auto');
+	    ga('create', '', 'auto');
 	    ga('send', 'pageview');
 
      </script>

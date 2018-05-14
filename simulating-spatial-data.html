@@ -55,13 +55,14 @@
 }
     </script>
 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <meta name="generator" content="Jekyll 3.0.0" />
     <link rel="alternate" type="application/rss+xml" title="Random Ramble with Drift" href="/feed.xml" />
 
 
 </head>
 <body class="home-template nav-closed">
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
     <!-- The blog navigation links -->
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
@@ -71,7 +72,7 @@
     <ul>
         <li class="nav-home " role="presentation"><a href="/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/about">About</a></li>
-        <li class="nav-author " role="presentation"><a href="/author/Neal">Neal</a></li>
+        <li class="nav-author " role="presentation"><a href="/author/hackz">Neal</a></li>
     </ul>
     <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
 </div>
@@ -105,11 +106,11 @@
         <header class="post-header">
             <h1 class="post-title">Simulating Spatially Correlated Data</h1>
             <section class="post-meta">
-            <!-- <a href='/'>Neal</a> -->
+            <!-- <a href='/'></a> -->
 
             
                 
-                    <a href='/author/Neal'>Neal Marquez</a>
+                    <a href='/author/hackz'>Neal Marquez</a>
                 
             
             <time class="post-date" datetime="2016-03-19">19 Mar 2016</time>
@@ -136,57 +137,56 @@
         <section class="post-content">
 
             <p>A couple of weeks ago I ran into a problem where I needed to create some spatially correlated data for a project and I
-realized that I didn&#39;t know the first thing about how to go about doing it. I was lucky to find that the
+realized that I didn’t know the first thing about how to go about doing it. I was lucky to find that the
 <a href="http://arxiv.org/abs/1601.01180">paper</a> that I was trying to replicate did a great job of detailing their methods in
 such a way that I was able to create some spatial data of my own. The idea is that you need to create a covariance
 matrix of the relationships of your data to pull form a multivariate random normal distribution.</p>
 
-<p>\[
-\mathcal{N}(\mu, \Sigma)
-\]</p>
+<script type="math/tex; mode=display">\mathcal{N}(\mu, \Sigma)</script>
 
-<p>\(\mu\) is just the scalar mean and can be set to any real number but defining a sensible covariance matrix was
+<p><script type="math/tex">\mu</script> is just the scalar mean and can be set to any real number but defining a sensible covariance matrix was
 originally difficult. The way that Riebler et al. did it was by using a matrix Q</p>
 
-<p>\[
-\begin{align*} 
-Q_{i,j}= \begin{cases} n_{\delta_{i}},& \text{if  } i = j \\
--1,              & \text{if  } i \sim j \\ 
-0, & \text{otherwise} \end{cases} 
-\end{align*}
-\]</p>
+<script type="math/tex; mode=display">% <![CDATA[
+Q_{i,j}=
+\begin{cases}
+    n_{\delta_{i}},& \text{if  } i = j \\
+    -1,              & \text{if  } i \sim j \\
+    0, & \text{otherwise}
 
-<p>where \(\delta_{i}\) is the number of neighbors a location has and \(i \sim j\) means that the two locations are
+\end{cases} %]]></script>
+
+<p>where <script type="math/tex">\delta_{i}</script> is the number of neighbors a location has and <script type="math/tex">i \sim j</script> means that the two locations are
 adjacent. Im used to working with spatial polygons data frames in R and found that its pretty easy to create this
-matrix with the right packages. Here&#39;s an example with US state shape file.</p>
+matrix with the right packages. Here’s an example with US state shape file.</p>
 
-<pre><code>library(sp)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>library(sp)
 library(surveillance)
 library(spdep)
 library(MASS)
 
 # load in some USA data to work with
-load(url(&quot;http://biogeo.ucdavis.edu/data/gadm2/R/USA_adm2.RData&quot;))
-cont_usa_locs &lt;- c(&quot;Texas&quot;, &quot;Louisiana&quot;)
+load(url("http://biogeo.ucdavis.edu/data/gadm2/R/USA_adm2.RData"))
+cont_usa_locs &lt;- c("Texas", "Louisiana")
 
 # spatial polygons data frame to simulate from
 cont_usa &lt;- gadm[(gadm@data$NAME_1 %in% cont_usa_locs),]
 cont_usa$ID &lt;- 1:length(cont_usa)
 
-# adjacency matrix for spatial data 1&#39;s if adjacent 0 otherwise
+# adjacency matrix for spatial data 1's if adjacent 0 otherwise
 adjmat &lt;- poly2adjmat(cont_usa)
 
 # Create Q from an adjacency matrix
 n_delta_i &lt;- rowSums(adjmat)
 Q &lt;- adjmat * -1
 diag(Q) &lt;- n_delta_i
-</code></pre>
+</code></pre></div></div>
 
 <p>Using the inverse of Q as the covariance matrix creates a smooth spatial dispersion, that you can see below, when
 compared to just simple dispersion at random. A more complete example can be found
 <a href="https://github.com/nmmarquez/spatial_epi/blob/master/project/project_outlay.r">here</a>.</p>
 
-<p><img src="/assets/images/spatial_sim_plot.png" alt="Alt text" title="If it fits I sits."/></p>
+<p><img src="/assets/images/spatial_sim_plot.png" alt="Alt text" title="If it fits I sits." /></p>
 
 
         </section>
@@ -199,19 +199,19 @@ compared to just simple dispersion at random. A more complete example can be fou
                 
                     
                         <figure class="author-image">
-                            <a class="img" href="/author/Neal" style="background-image: url(/assets/images/huitzilopochtli.png)"><span class="hidden">Neal's Picture</span></a>
+                            <a class="img" href="/author/hackz" style="background-image: url(/assets/images/huitzilopochtli.png)"><span class="hidden">hackz's Picture</span></a>
                         </figure>
                     
 
                     <section class="author">
-                        <h4><a href="/author/Neal">Neal Marquez</a></h4>
+                        <h4><a href="/author/hackz">Neal Marquez</a></h4>
 
                         
                             <p> Grad Student, Novice Nueromancer, Lengua Lover</p>
                         
                         <div class="author-meta">
-                            <span class="author-location icon-location"> Seattle, WA, USA</span>
-                            <span class="author-link icon-link"><a href="http://nmmarquez.github.io/"> nmmarquez.github.io/</a></span>
+                            <span class="author-location icon-location"> Seattle, WA</span>
+                            <span class="author-link icon-link"><a href="http://nmmarquez.github.io"> nmmarquez.github.io</a></span>
                         </div>
                     </section>
 
@@ -273,8 +273,8 @@ compared to just simple dispersion at random. A more complete example can be fou
 
         <!-- The tiny footer at the very bottom -->
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="/">Random Ramble with Drift</a> &copy; 2017</section>
-          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/myjekyll/jasper">Jasper</a></section>
+          <section class="copyright"><a href="/">Random Ramble with Drift</a> &copy; 2018</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
         </footer>
     </div>
     <!-- highlight.js -->
@@ -293,7 +293,7 @@ compared to just simple dispersion at random. A more complete example can be fou
 	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	    ga('create', 'UA-75303454-1', 'auto');
+	    ga('create', '', 'auto');
 	    ga('send', 'pageview');
 
      </script>

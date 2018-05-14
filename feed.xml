@@ -10,13 +10,14 @@
       <item>
         <title>R Shiny Server</title>
         
-          <description>&lt;p&gt;Setting up your own shiny server can be helpful to host a few small projects that you want to share with a few collaborators. I am going to go through the setup of starting a server, like through Amazon EWS or Digital Ocean, and through the necessary steps that you will need to take in order to be able to get access to that server securely. These instructions are specific to Ubuntu 16.04 but shouldn&amp;#39;t change that much across different versions.&lt;/p&gt;
+          <description>&lt;p&gt;Setting up your own shiny server can be helpful to host a few small projects that you want to share with a few collaborators. I am going to go through the setup of starting a server, like through Amazon EWS or Digital Ocean, and through the necessary steps that you will need to take in order to be able to get access to that server securely. These instructions are specific to &lt;code class=&quot;highlighter-rouge&quot;&gt;ubuntu&lt;/code&gt; 16.04 but shouldn’t change that much across different versions.&lt;/p&gt;
+
 </description>
         
-        <pubDate>Thu, 21 Dec 2017 10:00:00 +0000</pubDate>
+        <pubDate>Thu, 21 Dec 2017 02:18:00 -0800</pubDate>
         <link>
-        http://localhost:4000/R-shiny-server</link>
-        <guid isPermaLink="true">http://localhost:4000/R-shiny-server</guid>
+        http://localhost:4000/r-shiny-server</link>
+        <guid isPermaLink="true">http://localhost:4000/r-shiny-server</guid>
       </item>
       
     
@@ -27,10 +28,10 @@
           <description>&lt;p&gt;For any one who writes anything data science related there comes a time when they discover the &lt;del&gt;pain&lt;/del&gt; joy of writing there own MCMC sampler from scratch and the inevitable need to tell everyone about it. For me, now is that time and after getting my butt kicked in my stochastic modeling class I fell like I need to at least write about the one thing that I did want to take away from the class and feel like I got a decent handle on.&lt;/p&gt;
 </description>
         
-        <pubDate>Wed, 20 Dec 2017 10:00:00 +0000</pubDate>
+        <pubDate>Wed, 20 Dec 2017 02:18:00 -0800</pubDate>
         <link>
-        http://localhost:4000/gibbs-hm-mix</link>
-        <guid isPermaLink="true">http://localhost:4000/gibbs-hm-mix</guid>
+        http://localhost:4000/the-gibbs-and-MH-Mix</link>
+        <guid isPermaLink="true">http://localhost:4000/the-gibbs-and-MH-Mix</guid>
       </item>
       
     
@@ -41,10 +42,10 @@
           <description>&lt;p&gt;Rejection sampling allows us to sample from some target distribution when we have a proposal distribution. The algorithm works by first drawing a random value, say \(u\), that is between zero and one from uniform (\(U(0,1)\)) distribution. Next a random value for \(x\) is drawn from the proposal distribution \(f(x)\). Finally there is an acceptance/rejection step that asks: if the probability \(u\) is less than the density of \(g(x)\) at \(x\) divided by the density of \(f(x)*p_A\) then we&amp;#39;ll accept \(x\) as having been drawn from \(g(x)\). If not well sample another value for \(x\) from \(f(x)\) and try again.&lt;/p&gt;
 </description>
         
-        <pubDate>Tue, 19 Dec 2017 10:50:00 +0000</pubDate>
+        <pubDate>Tue, 19 Dec 2017 02:18:00 -0800</pubDate>
         <link>
-        http://localhost:4000/rejection</link>
-        <guid isPermaLink="true">http://localhost:4000/rejection</guid>
+        http://localhost:4000/Rejection-Sampling</link>
+        <guid isPermaLink="true">http://localhost:4000/Rejection-Sampling</guid>
       </item>
       
     
@@ -58,9 +59,10 @@ was a couple of different ways to define the probability distribution that led
 to more than a bit of confusion on my end, but got me messing around with how
 you could simulate over-dispersed count data in a couple of ways. It also got me
 working with TMB again and the woes of dealing with nonlinear optimization.&lt;/p&gt;
+
 </description>
         
-        <pubDate>Sat, 03 Dec 2016 10:50:00 +0000</pubDate>
+        <pubDate>Sat, 03 Dec 2016 02:50:00 -0800</pubDate>
         <link>
         http://localhost:4000/nb1-nb2-uncertainty</link>
         <guid isPermaLink="true">http://localhost:4000/nb1-nb2-uncertainty</guid>
@@ -72,13 +74,14 @@ working with TMB again and the woes of dealing with nonlinear optimization.&lt;/
         <title>Simulating Spatially Correlated Data</title>
         
           <description>&lt;p&gt;A couple of weeks ago I ran into a problem where I needed to create some spatially correlated data for a project and I
-realized that I didn&amp;#39;t know the first thing about how to go about doing it. I was lucky to find that the
+realized that I didn’t know the first thing about how to go about doing it. I was lucky to find that the
 &lt;a href=&quot;http://arxiv.org/abs/1601.01180&quot;&gt;paper&lt;/a&gt; that I was trying to replicate did a great job of detailing their methods in
 such a way that I was able to create some spatial data of my own. The idea is that you need to create a covariance
 matrix of the relationships of your data to pull form a multivariate random normal distribution.&lt;/p&gt;
+
 </description>
         
-        <pubDate>Sat, 19 Mar 2016 21:47:00 +0000</pubDate>
+        <pubDate>Sat, 19 Mar 2016 14:47:00 -0700</pubDate>
         <link>
         http://localhost:4000/simulating-spatial-data</link>
         <guid isPermaLink="true">http://localhost:4000/simulating-spatial-data</guid>
@@ -89,10 +92,11 @@ matrix of the relationships of your data to pull form a multivariate random norm
       <item>
         <title>Latex with Jekyll</title>
         
-          <description>&lt;p&gt;I am trying out a new layout that will hopefully let me do inline latex like so \(\beta\) as well as its own thing like  &lt;/p&gt;
+          <description>&lt;p&gt;I am trying out a new layout that will hopefully let me do inline latex like so &lt;script type=&quot;math/tex&quot;&gt;\beta&lt;/script&gt; as well as its own thing like&lt;/p&gt;
+
 </description>
         
-        <pubDate>Fri, 18 Mar 2016 10:18:00 -0700</pubDate>
+        <pubDate>Fri, 18 Mar 2016 03:18:00 -0700</pubDate>
         <link>
         http://localhost:4000/latex-with-jekyll</link>
         <guid isPermaLink="true">http://localhost:4000/latex-with-jekyll</guid>
@@ -107,7 +111,7 @@ matrix of the relationships of your data to pull form a multivariate random norm
 Hoping this is the beginning of something long and beautiful so here goes nothing.&lt;/p&gt;
 </description>
         
-        <pubDate>Fri, 18 Mar 2016 10:18:00 +0000</pubDate>
+        <pubDate>Fri, 18 Mar 2016 03:18:00 -0700</pubDate>
         <link>
         http://localhost:4000/hello-worlds</link>
         <guid isPermaLink="true">http://localhost:4000/hello-worlds</guid>

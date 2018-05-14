@@ -55,13 +55,14 @@
 }
     </script>
 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <meta name="generator" content="Jekyll 3.0.0" />
     <link rel="alternate" type="application/rss+xml" title="Random Ramble with Drift" href="/feed.xml" />
 
 
 </head>
 <body class="home-template nav-closed">
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
     <!-- The blog navigation links -->
     <div class="nav">
     <h3 class="nav-title">Menu</h3>
@@ -71,7 +72,7 @@
     <ul>
         <li class="nav-home " role="presentation"><a href="/">Home</a></li>
         <li class="nav-about " role="presentation"><a href="/about">About</a></li>
-        <li class="nav-author " role="presentation"><a href="/author/Neal">Neal</a></li>
+        <li class="nav-author " role="presentation"><a href="/author/hackz">Neal</a></li>
     </ul>
     <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
 </div>
@@ -105,11 +106,11 @@
         <header class="post-header">
             <h1 class="post-title">NB1 and NB2 Dispersion</h1>
             <section class="post-meta">
-            <!-- <a href='/'>Neal</a> -->
+            <!-- <a href='/'></a> -->
 
             
                 
-                    <a href='/author/Neal'>Neal Marquez</a>
+                    <a href='/author/hackz'>Neal Marquez</a>
                 
             
             <time class="post-date" datetime="2016-12-03">03 Dec 2016</time>
@@ -142,54 +143,48 @@ working with TMB again and the woes of dealing with nonlinear optimization.</p>
 distribution but also a gamma distribution to account for the extra variance.
 from what I have seen this is referred to as an NB1 model and looks like this.</p>
 
-<p>\[
-y \sim Poisson(Gamma(\mu / \alpha, \alpha))
-\]</p>
+<script type="math/tex; mode=display">y \sim Poisson(Gamma(\mu / \alpha, \alpha))</script>
 
-<p>Our distribution has a mean of \(\mu\) but that persists through both
+<p>Our distribution has a mean of <script type="math/tex">\mu</script> but that persists through both
 distributions but the variance is greater than just a regular poisson
 distribution because of the randomness introduced by the Gamma distribution
-which itself has a variance of \(\mu * \alpha\). Getting this to work for a
+which itself has a variance of <script type="math/tex">\mu * \alpha</script>. Getting this to work for a
 linear model with a log link required me to introduce a new random
-variable \(\nu\) which would account for the over-dispersion and a full log link
+variable <script type="math/tex">\nu</script> which would account for the over-dispersion and a full log link
 model follows the form</p>
 
-<p>\[
-\begin{align*}
-\nu & \sim gamma(1/\alpha, \alpha) \\
-\mu & = exp(X \dot \beta + \nu) \\
-y & \sim Poisson(\mu)
-\end{align*}
-\]</p>
+<script type="math/tex; mode=display">\nu \sim gamma(1/\alpha, \alpha)</script>
 
-<p>where \(X\) is my matrix of covariate data and \(\beta\) are their coefficients
+<script type="math/tex; mode=display">\mu = exp(X \dot \beta + \nu)</script>
+
+<script type="math/tex; mode=display">y \sim Poisson(\mu)</script>
+
+<p>where <script type="math/tex">X</script> is my matrix of covariate data and <script type="math/tex">\beta</script> are their coefficients
 for the linear model.</p>
 
 <p>Simulating this data was cake but when I used TMB to fit the model I found
 that my model often failed to converge depending on what the start values of my
-parameters were. I could get around it by fitting the model with out \(\nu\)
-first to get good start values for \(\beta\) but even so the model was slow to
+parameters were. I could get around it by fitting the model with out <script type="math/tex">\nu</script>
+first to get good start values for <script type="math/tex">\beta</script> but even so the model was slow to
 fit.</p>
 
 <p>Alternatively we could model the extra variance directly without any extra term
-\(\nu\) by using a negative binomial function that comes built in with both R and
+$$\nu$ by using a negative binomial function that comes built in with both R and
 TMB. This way saves us the hassle of having to simulate from two different
 distributions and the two parameter model can easily be set up so that it has
 a mean setting parameter and a variance parameter. The NB2 as well call it looks
 like this.</p>
 
-<p>\[
-\begin{align*}
-y & \sim NB2(\mu, \theta) \\
-E(y) & = \mu \\
-Var(y) & = \mu + (\theta / \mu^{2})
-\end{align*}
-\]</p>
+<script type="math/tex; mode=display">y \sim NB2(\mu, \theta)</script>
 
-<p>Fitting a log linear model into here just means estimating \(log(\mu)\) with
-the same \(X \dot \beta\) without the \(\nu\) parameter. The nice thing is we
-still get the same distribution as the first model where \(\alpha\) corresponds
-to \(1/\theta\). The even nicer thing is that I didn&#39;t have any problems fitting
+<script type="math/tex; mode=display">E(y) = \mu</script>
+
+<script type="math/tex; mode=display">Var(y) = \mu + (\theta / \mu^{2})</script>
+
+<p>Fitting a log linear model into here just means estimating <script type="math/tex">log(\mu)</script> with
+the same <script type="math/tex">X \dot \beta</script> without the <script type="math/tex">\nu</script> parameter. The nice thing is we
+still get the same distribution as the first model where <script type="math/tex">\alpha</script> corresponds
+to <script type="math/tex">1/\theta</script>. The even nicer thing is that I didn’t have any problems fitting
 this model and it was way faster for TMB due to not having a whole other set of
 parameters to estimate.</p>
 
@@ -206,19 +201,19 @@ parameters to estimate.</p>
                 
                     
                         <figure class="author-image">
-                            <a class="img" href="/author/Neal" style="background-image: url(/assets/images/huitzilopochtli.png)"><span class="hidden">Neal's Picture</span></a>
+                            <a class="img" href="/author/hackz" style="background-image: url(/assets/images/huitzilopochtli.png)"><span class="hidden">hackz's Picture</span></a>
                         </figure>
                     
 
                     <section class="author">
-                        <h4><a href="/author/Neal">Neal Marquez</a></h4>
+                        <h4><a href="/author/hackz">Neal Marquez</a></h4>
 
                         
                             <p> Grad Student, Novice Nueromancer, Lengua Lover</p>
                         
                         <div class="author-meta">
-                            <span class="author-location icon-location"> Seattle, WA, USA</span>
-                            <span class="author-link icon-link"><a href="http://nmmarquez.github.io/"> nmmarquez.github.io/</a></span>
+                            <span class="author-location icon-location"> Seattle, WA</span>
+                            <span class="author-link icon-link"><a href="http://nmmarquez.github.io"> nmmarquez.github.io</a></span>
                         </div>
                     </section>
 
@@ -255,7 +250,7 @@ parameters to estimate.</p>
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover1.jpg)" href="/rejection">
+        <a class="read-next-story " style="background-image: url(/assets/images/cover1.jpg)" href="/Rejection-Sampling">
             <section class="post">
                 <h2>Rejection Sampling</h2>
                 <p>Rejection sampling allows us to sample from some target distribution when we have a proposal...</p>
@@ -280,8 +275,8 @@ parameters to estimate.</p>
 
         <!-- The tiny footer at the very bottom -->
         <footer class="site-footer clearfix">
-          <section class="copyright"><a href="/">Random Ramble with Drift</a> &copy; 2017</section>
-          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/myjekyll/jasper">Jasper</a></section>
+          <section class="copyright"><a href="/">Random Ramble with Drift</a> &copy; 2018</section>
+          <section class="poweredby">Proudly published with <a href="https://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/jekyller/jasper">Jasper</a></section>
         </footer>
     </div>
     <!-- highlight.js -->
@@ -300,7 +295,7 @@ parameters to estimate.</p>
 	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	    ga('create', 'UA-75303454-1', 'auto');
+	    ga('create', '', 'auto');
 	    ga('send', 'pageview');
 
      </script>
