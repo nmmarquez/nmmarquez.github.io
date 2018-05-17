@@ -8,6 +8,20 @@
     
       
       <item>
+        <title>Confidence Intervals &amp; Bias</title>
+        
+          <description>&lt;p&gt;In order to get a good idea of the underlying theory of frequentist confidence intervals and how model assumptions could potentially bias our results we examine a set of simulations below to test the estimation of a single known parameter, in the code referred to as &lt;code&gt;trueValue&lt;/code&gt;.&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 17 May 2018 03:18:00 -0700</pubDate>
+        <link>
+        http://localhost:4000/confidence-intervals-bias</link>
+        <guid isPermaLink="true">http://localhost:4000/confidence-intervals-bias</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Using ACS Data Directly From R</title>
         
           <description>&lt;p&gt;This post goes over how to download and use Census and ACS data from within R using the &lt;code&gt;tidycensus&lt;/code&gt; and &lt;code&gt;acs&lt;/code&gt; packages. When possible I would suggest using the &lt;code&gt;tidycensus&lt;/code&gt; package as the functions are much easier to work with and provide a cleaner output. The &lt;code&gt;tidycensus&lt;/code&gt; package, unfortunately, does not cover the entirity of the census geographies and that is when we must use the &lt;code&gt;acs&lt;/code&gt; package. They both access the same data so reults should not differ if you decide to use one package over another.&lt;/p&gt;
