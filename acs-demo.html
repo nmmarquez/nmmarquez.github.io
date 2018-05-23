@@ -213,7 +213,7 @@ t &lt;- capture.output(rawIncomeDF &lt;- get_acs(
     geography=&quot;county&quot;, # I want county level data
     variables=incomeVars, # iwant the variables from this list
     year=2014, # from the 2014 acs
-    geometry=TRUE)) # I also want the geometry data for mapping later
+    geometry=TRUE, cache=T)) # I also want the geometry data for mapping later
 
 hispanicSPDF &lt;- rawIncomeDF %&gt;%  # take my sf structure
     filter(variable == &quot;B19013I_001&quot;) %&gt;% # isolate hispanic income data

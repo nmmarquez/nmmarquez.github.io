@@ -8,6 +8,20 @@
     
       
       <item>
+        <title>Explicit Link Between GMRF to GF (Part 1)</title>
+        
+          <description>&lt;p&gt;This is largely a write up describing the main results of a foundational paper in geostatistics &amp;ldquo;An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach&amp;rdquo; by Lindgren, Rue, and Lindstrom. It also demos how to make use the findings in the paper in R and vizualize the results. This is especially applicable for cases when you have spatial point data that is unevenly spaced.&lt;/p&gt;
+</description>
+        
+        <pubDate>Tue, 22 May 2018 03:18:00 -0700</pubDate>
+        <link>
+        http://localhost:4000/explicit-link-between-gmrf-gf</link>
+        <guid isPermaLink="true">http://localhost:4000/explicit-link-between-gmrf-gf</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Confidence Intervals &amp; Bias</title>
         
           <description>&lt;p&gt;In order to get a good idea of the underlying theory of frequentist confidence intervals and how model assumptions could potentially bias our results we examine a set of simulations below to test the estimation of a single known parameter, in the code referred to as &lt;code&gt;trueValue&lt;/code&gt;.&lt;/p&gt;
