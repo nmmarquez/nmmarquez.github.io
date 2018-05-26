@@ -8,6 +8,20 @@
     
       
       <item>
+        <title>Explicit Link Between GMRF to GF (Part 2)</title>
+        
+          <description>&lt;p&gt;This is a continuation of the write up describing the main results of a foundational paper in geostatistics &amp;ldquo;An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach&amp;rdquo; by Lindgren, Rue, and Lindstrom. It also demos how to make use the findings in the paper in R and vizualize the results. See the first post &lt;a href=&quot;https://nmmarquez.github.io/explicit-link-between-gmrf-gf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        
+        <pubDate>Wed, 23 May 2018 03:18:00 -0700</pubDate>
+        <link>
+        http://localhost:4000/explicit-link-2</link>
+        <guid isPermaLink="true">http://localhost:4000/explicit-link-2</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Explicit Link Between GMRF to GF (Part 1)</title>
         
           <description>&lt;p&gt;This is largely a write up describing the main results of a foundational paper in geostatistics &amp;ldquo;An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach&amp;rdquo; by Lindgren, Rue, and Lindstrom. It also demos how to make use the findings in the paper in R and vizualize the results. This is especially applicable for cases when you have spatial point data that is unevenly spaced.&lt;/p&gt;
