@@ -26,7 +26,8 @@
 library(mvtnorm)
 library(Matrix)
 library(parallel)
-library(ar.matrix) # devtools::install_github(&quot;nmmarquez/ar.matrix&quot;)
+# devtools::install_github(&quot;nmmarquez/ar.matrix&quot;)
+library(ar.matrix)
 library(ggplot2)
 library(INLA)
 
