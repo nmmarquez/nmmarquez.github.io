@@ -8,6 +8,34 @@
     
       
       <item>
+        <title>Harmonizing Spatial Data For Geospatial Modeling Part II</title>
+        
+          <description>&lt;p&gt;To complicate the situation even more I am going to throw in one more model to the mix, a spatial mixture model, which accounts for the many possible location from an administrative area that a sample can be drawn from if it is sufficiently discretized. I wont go into too much detail here but I will have a formal write up soon. In the mean time the model functional form for areal data sampled from a continuous geographic field would have a statistical model that would look like a mixture of binomials as follows. &lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 23 May 2019 03:18:00 -0700</pubDate>
+        <link>
+        http://localhost:4000/harmonizing-spatial-data-part-2</link>
+        <guid isPermaLink="true">http://localhost:4000/harmonizing-spatial-data-part-2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Harmonizing Spatial Data For Geospatial Modeling Part I</title>
+        
+          <description>&lt;p&gt;Having had a bulk of my statistical training done under the the tutelage of the Institute for Health Metrics and Evaluation (IHME), I was very much indoctrinated into the idea that more data leads to better estimates, even when that data is perfect. Much of my work tries to deal with how to leverage &amp;ldquo;imperfect&amp;rdquo; data in order to be utilized for more informed estimates of demographic phenomenon. One example of this that occurs in geospatial health modeling is when data is not geolocated to a particular point location but rather to a larger administrative area. If you are not familiar with geospatial modeling (or model based geostatistics) its the process of trying to estimate the underlying stochastic process that generates observations by leveraging correlations in space. Basically, we believe that events that occur near each other are more likely to be similar than events that occur farther away from each other. In my work in estimating spatial differences in child mortality, we can imagine a whole host of reasons on why that may be true but they usually correlate to other upstream factors related to health also being spatially autocorrelated, distance to a health facility, policies of a administrative region, socio-economic status, etc.&lt;/p&gt;
+</description>
+        
+        <pubDate>Mon, 20 May 2019 03:18:00 -0700</pubDate>
+        <link>
+        http://localhost:4000/harmonizing-spatial-data</link>
+        <guid isPermaLink="true">http://localhost:4000/harmonizing-spatial-data</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>Explicit Link Between GMRF to GF (Part 2)</title>
         
           <description>&lt;p&gt;This is a continuation of the write up describing the main results of a foundational paper in geostatistics &amp;ldquo;An explicit link between Gaussian fields and Gaussian Markov random fields: the stochastic partial differential equation approach&amp;rdquo; by Lindgren, Rue, and Lindstrom. It also demos how to make use the findings in the paper in R and vizualize the results. See the first post &lt;a href=&quot;https://nmmarquez.github.io/explicit-link-between-gmrf-gf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
